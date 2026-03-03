@@ -1,0 +1,40 @@
+LA = 9;
+LB = 9;
+LC = 9;
+
+sigGKP = 0.12;
+etas = 0.995;
+etam = 0.999995;
+etad = 0.9975;
+etac = 0.99;
+Lcavity = 2;
+v = 0.3;
+
+kA = 0;
+kB = 10;
+kC = 0;
+
+N = 10000;
+
+xdata = [];
+out = zeros(9*9, 3);
+idx = 1;
+
+tic;
+disp("*******The simulation has started.*******");
+for i = 1:1:9
+    disp("Starting loop i=" + string(i))
+    for j = 9:1:17
+        RateList = GHZRateList_Distance_k(LA, LB, LC, sigGKP, etas, etam, etad, etac, Lcavity, i, kB, j, v, N);
+        out(idx,:) = [i, j, RateList(1)];
+        idx = idx + 1;
+    end
+    disp("*******The loop has completed.*******")
+end
+
+T = array2table(out, 'VariableNames', {'kA','kC','Rate'});
+writetable(T, 'FIG5_Rate_map.csv');
+
+disp("*******The simulation has finished.*******")
+elapsedTime = toc;
+fprintf('Simulation duration: %.3f seconds\n', elapsedTime);

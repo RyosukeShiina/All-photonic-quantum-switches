@@ -113,5 +113,6 @@ XerrOuter = XerrOuter/N;
 %We combine the two error probability column vectors of the Inner-Leaves Swapping and Outer-Leaves Swapping.
 %An error occurs at the end only when an Inner-Leaves Swapping has an error and the corresponding Outer-Leaves Swapping does not, or vice versa. 
 %Therefore, instead of simply summing the two error probability column vectors, we compute the probability that Inner-Leaves Swapping causes an error while Outer-Leaves Swapping does not, and vice versa, and then sum these two contributions.
+
 Xerr = XerrOuter;
 Zerr = ZerrOuter;
