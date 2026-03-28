@@ -4,9 +4,14 @@ LC = 9;
 LD = 9;
 LE = 9;
 
+kA = 0;
+kB = 0;
+kC = 0;
+kD = 0;
+kE = 0;
+
 ktotalmax = 25;
 N = 100000;
-
 
 sigGKP = 0.12;
 etas = 0.995;
@@ -18,6 +23,8 @@ v = 0.3;
 
 tstart = tic;
 
+%kswitch = kA + kB + kC + kD + kE;
+
 AllRows = 0;
 for ktotal = 1:1:ktotalmax
     AllRows = AllRows+(ktotal+1)*(ktotal+2)/2;
@@ -28,12 +35,14 @@ idx = 1;
 
 disp("*******The simulation has started.*******");
 for ktotal = 1:1:ktotalmax
-    %disp("Starting loop ktotal=" + string(ktotal))
     fprintf("ktotal=%d/%d | elapsed %.1f s\n", ktotal, ktotalmax, toc(tstart));
     for kBell = 0:1:ktotal
         for kGHZ = 0:(ktotal - kBell)
-            kA = kGHZ; kB = kGHZ; kC = kGHZ;
-            kD = kBell; kE = kBell;
+            kA = floor(kGHZ/3);
+            kB = floor(kGHZ/3);
+            kC = floor(kGHZ/3);
+            kD = floor(kBell/2);
+            kE = floor(kBell/2);
             [TotalRate, TotalRateBell, TotalRateGHZ, kswitch] = GHZRateList_Allocation(LA, LB, LC, LD, LE, sigGKP, etas, etam, etad, etac, Lcavity, kA, kB, kC, kD, kE, v, N);
             out(idx,:) = [ktotal, kBell, kGHZ, TotalRate, TotalRateBell, TotalRateGHZ];
             idx = idx + 1;

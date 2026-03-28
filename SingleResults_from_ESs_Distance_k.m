@@ -6,24 +6,19 @@ function SingleResults = SingleResults_from_ESs_Distance_k(LA, LB, LC, sigGKP, e
 
 %1<rB<rC
 
-LL = max([LA, LB, LC]); %Longest L
-
-Sk = min([kA, kB, kC]); %Shortest k
-
 [Xes1, Zes1] = OuterSwappingAndConstruction(LA, sigGKP, etas, etam, etad, etac, Lcavity, kA, v, N);
 [Xes2, Zes2] = OuterSwappingAndConstruction(LB, sigGKP, etas, etam, etad, etac, Lcavity, kB, v, N);
 [Xes3, Zes3] = OuterSwappingAndConstruction(LC, sigGKP, etas, etam, etad, etac, Lcavity, kC, v, N);
 
-Xes1_new = Xes1(1:Sk);
-Zes1_new = Zes1(1:Sk);
+Sk = min([kA, kB, kC]);
+Xes1 = Xes1(1:Sk);
+Zes1 = Zes1(1:Sk);
+Xes2 = Xes2(1:Sk);
+Zes2 = Zes2(1:Sk);
+Xes3 = Xes3(1:Sk);
+Zes3 = Zes3(1:Sk);
 
-Xes2_new = Xes2(1:Sk);
-Zes2_new = Zes2(1:Sk);
-
-Xes3_new = Xes3(1:Sk);
-Zes3_new = Zes3(1:Sk);
-
-
+LL = max([LA, LB, LC]);
 [Xes4, Zes4] = InnerSwappingAndConstruction(LL, sigGKP, etas, etam, etad, etac, Lcavity, Sk, v, N);
 [Xes5, Zes5] = InnerSwappingAndConstruction(LL, sigGKP, etas, etam, etad, etac, Lcavity, Sk, v, N);
 [Xes6, Zes6] = InnerSwappingAndConstruction(LL, sigGKP, etas, etam, etad, etac, Lcavity, Sk, v, N);

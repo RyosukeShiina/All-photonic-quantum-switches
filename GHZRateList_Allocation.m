@@ -6,12 +6,10 @@ function [TotalRate, TotalRateBell, TotalRateGHZ, kswitch, kGHZ, kBell] = GHZRat
 
 tic;
 
-kswitch = min([kA, kB, kC]) + min([kD, kE]);
-kGHZ = min([kA, kB, kC]);
-kBell = min([kD, kE]);
+kswitch = kA + kB + kC + kD + kE;
+
 
 %%%%%%%%%%%%%%%%%Bell Group%%%%%%%%%%%%%%%%%%%
-
 
 sigmasPostselect = zeros(1, 11);
 sigmasPostselect(1) = sqrt(3*sigGKP^2 + (1-etad)/etad);
