@@ -31,6 +31,7 @@ project-root/
 │   │   │   ├── map_swapping_results_to_ghz_pauli_operator_probabilities.m
 │   │   │   │   ├── OuterSwappingAndConstruction.m
 │   │   │   │   └── InnerSwappingAndConstruction.m
+│   │   │   ├── CombinedResults_from_SingleResults
 │   │   │   ├── QxQzQab_from_CombinedResults.m
 │   │   │   └── Rate_from_QxQzQab.m
 │   │   └── BellRate.m
