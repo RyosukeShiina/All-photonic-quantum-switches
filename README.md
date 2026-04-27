@@ -27,6 +27,13 @@ When viewing this repository on GitHub, please first open the `README.md` file. 
 project-root/
 ├── matlab_simulation/
 │   ├── run_switch_resource_allocation_sweep.m
+│   │   ├── GHZRate.m
+│   │   │   ├── map_swapping_results_to_ghz_pauli_operator_probabilities.m
+│   │   │   │   ├── OuterSwappingAndConstruction.m
+│   │   │   │   └── InnerSwappingAndConstruction.m
+│   │   │   ├── QxQzQab_from_CombinedResults.m
+│   │   │   └── Rate_from_QxQzQab.m
+│   │   └── BellRate.m
 │   ├── UW3_InnerAndOuterLeave.m
 │   │   ├── UW3_OuterLeave.m
 │   │   │   ├── UW3_AddInitialLogErrors.m
