@@ -33,6 +33,7 @@ project-root/
 │   │   │   │   └── InnerSwappingAndConstruction.m
 │   │   │   ├── map_ghz_pauli_operator_probabilities_to_combined_pauli_operator_probabilities.m
 │   │   │   ├── QxQzQab_from_CombinedResults.m
+│   │   │   │   └── GHZindex_from_Pauli
 │   │   │   └── Rate_from_QxQzQab.m
 │   │   └── BellRate.m
 │   ├── UW3_InnerAndOuterLeave.m
