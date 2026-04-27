@@ -30,9 +30,15 @@ project-root/
 │   │   ├── GHZRate.m
 │   │   │   ├── map_swapping_results_to_ghz_pauli_operator_probabilities.m
 │   │   │   │   ├── OuterSwappingAndConstruction.m
+│   │   │   │   │   ├── UW3_AddInitialLogErrors.m
+│   │   │   │   │   ├──
+│   │   │   │   │   └── 
 │   │   │   │   └── InnerSwappingAndConstruction.m
+│   │   │   │       ├── UW3_AddInitialLogErrors.m
+│   │   │   │       ├──
+│   │   │   │       └── 
 │   │   │   ├── map_ghz_pauli_operator_probabilities_to_combined_pauli_operator_probabilities.m
-│   │   │   ├── QxQzQab_from_CombinedResults.m
+│   │   │   ├── map_combined_pauli_operator_probabilities_to_ghz_basis_lambdas_and_Qs.m
 │   │   │   │   └── GHZindex_from_Pauli
 │   │   │   └── Rate_from_QxQzQab.m
 │   │   └── BellRate.m
