@@ -21,57 +21,12 @@ To reproduce QCNC figures from the provided data:
 The notebooks load data from `python_plotting/Fig_Data/`.
 If you would like to regenerate the simulation outputs from scratch, please use the UW3 series.
 
-# For arXiv paper readers
-This repository already contains simulation outputs used in the QCNC figures.
-To reproduce QCNC figures from the provided data:
-1. Go to `python_plotting/`
-2. Open and run the following notebooks:
-   - arXiv Fig. 4: `FIG9A01_Perror_vs_v7.ipynb`
-   - arXiv Fig. 5: `FIG9B01_Rate_vs_Distance.ipynb`
-   - arXiv Fig. 6: `FIG9B02-FIG9B05_Rate_vs_k.ipynb`
-   - arXiv Fig. 7: `FIG9B02-FIG9B05_Rate_vs_k.ipynb`
-   - arXiv Fig. 8: `FIG9B02-FIG9B05_Rate_vs_k.ipynb`
-   - arXiv Fig. 9: `FIG9B02-FIG9B05_Rate_vs_k.ipynb`
-   - arXiv Fig. 10: `FIG9C01_NoGKP_vs_Distance.ipynb`
-   - arXiv Fig. 11: `FIG9C02_NoGKP_vs_k.ipynb`
-   - arXiv Fig. 12: `FIG9D01-FIG9D05_Cost.ipynb`
-   - arXiv Fig. 13: `FIG9D01-FIG9D05_Cost.ipynb`
-   - arXiv Fig. 14: `FIG9D01-FIG9D05_Cost.ipynb`
-   - arXiv Fig. 15: `FIG9D01-FIG9D05_Cost.ipynb`
-   - arXiv Fig. 16: `FIG9D01-FIG9D05_Cost.ipynb`
-   - arXiv Fig. 18: `FIG10A02_Rate_vs_Distance.ipynb`
-   - arXiv Fig. 19: `FIG10A03_NoGKP_vs_Distance.ipynb`
-   - arXiv Fig. 22: `FIG10B03_Rate_vs_Distance.ipynb`
-   - arXiv Fig. 23: `FIG10B04_NoGKP_vs_Distance.ipynb`
-   - arXiv Fig. 24: `FIG10C01-FIG10C03_SensitivityAnalysis.ipynb`
-   - arXiv Fig. 25: `FIG10C01-FIG10C03_SensitivityAnalysis.ipynb`
-   - arXiv Fig. 26: `FIG10C01-FIG10C03_SensitivityAnalysis.ipynb`
-   - arXiv Fig. 27: `FIG10C04_etam_vs_Lcavity.ipynb`
-
-The notebooks load data from `python_plotting/Fig_Data/`.
-
 # Folder Structure and Call Hierarchy
 When viewing this repository on GitHub, please first open the `README.md` file. To properly display the directory tree shown below, make sure to click on the **Code** tab.
 
 project-root/
 ├── matlab_simulation/
-│   ├── UW2_InnerAndOuterLeave.m
-│   │   ├── UW2_OuterLeave.m
-│   │   │   ├── UW2_AddInitialLogErrors.m
-│   │   │   └── R_ConcatenatedEC_OuterLeaves.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── R_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── UW2_InnerLeave.m
-│   │   │   ├── UW2_AddInitialLogErrors.m
-│   │   │   └── R_ConcatenatedEC_InnerLeaves.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── R_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── R_Find_v.m
-│   │   └── R_LogErrAfterPost.m
+│   ├── run_switch_resource_allocation_sweep.m
 │   ├── UW3_InnerAndOuterLeave.m
 │   │   ├── UW3_OuterLeave.m
 │   │   │   ├── UW3_AddInitialLogErrors.m
@@ -86,91 +41,6 @@ project-root/
 │   │   │       ├── R_ReminderMod.m
 │   │   │       ├── R_SyndromeToErrors.m
 │   │   │       └── R_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── R_Find_v.m
-│   │   └── R_LogErrAfterPost.m
-│   ├── ML_UW2_InnerAndOuterLeave.m (ML stands for memoryless)
-│   │   ├── ML_UW2_OuterLeave.m
-│   │   │   ├── UW2_AddInitialLogErrors.m
-│   │   │   └── R_ConcatenatedEC_OuterLeaves.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── R_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── UW2_InnerLeave.m
-│   │   │   ├── UW2_AddInitialLogErrors.m
-│   │   │   └── R_ConcatenatedEC_InnerLeaves.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── R_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── R_Find_v.m
-│   │   └── R_LogErrAfterPost.m
-│   ├── ML_UW3_InnerAndOuterLeave.m
-│   │   ├── ML_UW3_OuterLeave.m
-│   │   │   ├── UW3_AddInitialLogErrors.m
-│   │   │   └── R_ConcatenatedEC_OuterLeaves.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── R_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── UW3_InnerLeave.m
-│   │   │   ├── UW3_AddInitialLogErrors.m
-│   │   │   └── R_ConcatenatedEC_InnerLeaves.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── R_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── R_Find_v.m
-│   │   └── R_LogErrAfterPost.m
-│   ├── LP_InnerAndOuterLeave.m (LP stands for Logical-Physical)
-│   │   ├── LP_OuterLeaf.m
-│   │   │   ├── LP_AddInitialLogErrorsOuterLeaf.m
-│   │   │   └── LP_GKPEC_OuterLeaf.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       └── R_ErrorLikelihood.m
-│   │   ├── LP_InnerLeave.m
-│   │   │   ├── LP_AddInitialLogErrorsInnerLeaves.m
-│   │   │   └── R_ConcatenatedEC_InnerLeaves.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── R_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── R_Find_v.m
-│   │   └── R_LogErrAfterPost.m
-│   ├── LP_Spool_InnerAndOuterLeave.m
-│   │   ├── LP_OuterLeaf.m
-│   │   │   ├── LP_AddInitialLogErrorsOuterLeaf.m
-│   │   │   └── LP_GKPEC_OuterLeaf.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       └── R_ErrorLikelihood.m
-│   │   ├── LP_Spool_InnerLeave.m
-│   │   │   ├── LP_AddInitialLogErrorsInnerLeaves.m
-│   │   │   ├── LP_TEC_Spool.m
-│   │   │   │   └── R_ReminderMod.m
-│   │   │   └── LP_SteaneEC
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── LP_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── R_Find_v.m
-│   │   └── R_LogErrAfterPost.m
-│   ├── UW3_Spool_InnerAndOuterLeave.m
-│   │   ├── UW3_OuterLeave.m
-│   │   │   ├── UW3_AddInitialLogErrors.m
-│   │   │   └── R_ConcatenatedEC_OuterLeaves.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── R_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── UW3_Spool_InnerLeave.m
-│   │   │   ├── UW3_AddInitialLogErrorsInnerLeaves.m
-│   │   │   ├── LP_TEC_Spool.m
-│   │   │   │   └── R_ReminderMod.m
-│   │   │   └── LP_SteaneEC
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── LP_JointErrorLikelihood.m
 │   │   │           └── R_ErrorLikelihood.m
 │   │   ├── R_Find_v.m
 │   │   └── R_LogErrAfterPost.m
