@@ -42,6 +42,9 @@ project-root/
 │   │   │   │   ├── get_three_qubit_pauli_labels.m
 │   │   │   │   └── map_three_qubit_pauli_to_ghz_basis_index.m
 │   │   │   └── map_Qs_to_secret_key_rate.m
+│   │   │       ├── p_log2_p.m
+│   │   │       ├── p_times_one_minus_log2_p.m
+│   │   │       └── binary_entropy.m
 │   │   └── BellRate.m
 │   ├── UW3_InnerAndOuterLeave.m
 │   │   ├── UW3_OuterLeave.m
