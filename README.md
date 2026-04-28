@@ -29,14 +29,22 @@ project-root/
 │   ├── run_switch_resource_allocation_sweep.m
 │   │   ├── GHZRate.m
 │   │   │   ├── map_swapping_results_to_ghz_pauli_operator_probabilities.m
-│   │   │   │   ├── OuterSwappingAndConstruction.m
-│   │   │   │   │   ├── UW3_AddInitialLogErrors.m
-│   │   │   │   │   ├──
-│   │   │   │   │   └── 
+│   │   │   │   ├── outer_leaves_swapping_and_construction.m
+│   │   │   │   │   └── UW3_OuterLeave.m
+│   │   │   │   │       ├── UW3_AddInitialLogErrors.m
+│   │   │   │   │       └── R_ConcatenatedEC_OuterLeaves.m
+│   │   │   │   │           ├── R_ReminderMod.m
+│   │   │   │   │           ├── R_SyndromeToErrors.m
+│   │   │   │   │           └── R_JointErrorLikelihood.m
+│   │   │   │   │               └── R_ErrorLikelihood.m
 │   │   │   │   └── InnerSwappingAndConstruction.m
-│   │   │   │       ├── UW3_AddInitialLogErrors.m
-│   │   │   │       ├──
-│   │   │   │       └── 
+│   │   │   │       └── UW3_InnerLeave.m
+│   │   │   │           ├── UW3_AddInitialLogErrors.m
+│   │   │   │           └── R_ConcatenatedEC_InnerLeaves.m
+│   │   │   │               ├── R_ReminderMod.m
+│   │   │   │               ├── R_SyndromeToErrors.m
+│   │   │   │               └── R_JointErrorLikelihood.m
+│   │   │   │                   └── R_ErrorLikelihood.m
 │   │   │   ├── map_ghz_pauli_operator_probabilities_to_combined_pauli_operator_probabilities.m
 │   │   │   ├── map_combined_pauli_operator_probabilities_to_ghz_basis_lambdas_and_Qs.m
 │   │   │   │   ├── get_three_qubit_pauli_labels.m
@@ -63,23 +71,6 @@ project-root/
 │   │       ├── R_SecretKey6State_total.m
 │   │       ├── R_Find_v.m
 │   │       └── R_LogErrAfterPost.m
-│   ├── UW3_InnerAndOuterLeave.m
-│   │   ├── UW3_OuterLeave.m
-│   │   │   ├── UW3_AddInitialLogErrors.m
-│   │   │   └── R_ConcatenatedEC_OuterLeaves.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── R_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── UW3_InnerLeave.m
-│   │   │   ├── UW3_AddInitialLogErrors.m
-│   │   │   └── R_ConcatenatedEC_InnerLeaves.m
-│   │   │       ├── R_ReminderMod.m
-│   │   │       ├── R_SyndromeToErrors.m
-│   │   │       └── R_JointErrorLikelihood.m
-│   │   │           └── R_ErrorLikelihood.m
-│   │   ├── R_Find_v.m
-│   │   └── R_LogErrAfterPost.m
 │   ├── Perror_vs_v7_UW2_9km.m (Fig 9A01)
 │   ├── Rate_vs_Distance_UW2_and_UW3.m (Fig 9B01)
 │   ├── Rate_vs_k_UW2.m (Fig 9B02-9B04)
