@@ -46,6 +46,23 @@ project-root/
 │   │   │       ├── p_times_one_minus_log2_p.m
 │   │   │       └── binary_entropy.m
 │   │   └── BellRate.m
+│   │       ├── UW3_OuterLeave.m
+│   │       │   ├── UW3_AddInitialLogErrors.m
+│   │       │   └── R_ConcatenatedEC_OuterLeaves.m
+│   │       │       ├── R_ReminderMod.m
+│   │       │       ├── R_SyndromeToErrors.m
+│   │       │       └── R_JointErrorLikelihood.m
+│   │       │           └── R_ErrorLikelihood.m
+│   │       ├── UW3_InnerLeave.m
+│   │       │   ├── UW3_AddInitialLogErrors.m
+│   │       │   └── R_ConcatenatedEC_InnerLeaves.m
+│   │       │       ├── R_ReminderMod.m
+│   │       │       ├── R_SyndromeToErrors.m
+│   │       │       └── R_JointErrorLikelihood.m
+│   │       │           └── R_ErrorLikelihood.m
+│   │       ├── R_SecretKey6State_total.m
+│   │       ├── R_Find_v.m
+│   │       └── R_LogErrAfterPost.m
 │   ├── UW3_InnerAndOuterLeave.m
 │   │   ├── UW3_OuterLeave.m
 │   │   │   ├── UW3_AddInitialLogErrors.m
