@@ -1,13 +1,13 @@
 function ghzPauliOperatorResults = map_swapping_results_to_ghz_pauli_operator_probabilities(LA, LB, LC, sigGKP, etas, etam, etad, etac, Lcavity, kA, kB, kC, v, N)
 
 
-
-[xOuterA, zOuterA] = OuterSwappingAndConstruction(LA, sigGKP, etas, etam, etad, etac, Lcavity, kA, v, N);
-[xOuterB, zOuterB] = OuterSwappingAndConstruction(LB, sigGKP, etas, etam, etad, etac, Lcavity, kB, v, N);
-[xOuterC, zOuterC] = OuterSwappingAndConstruction(LC, sigGKP, etas, etam, etad, etac, Lcavity, kC, v, N);
+[xOuterA, zOuterA] = outer_leaves_swapping_and_construction(LA, sigGKP, etas, etam, etad, etac, Lcavity, kA, v, N);
+[xOuterB, zOuterB] = outer_leaves_swapping_and_construction(LB, sigGKP, etas, etam, etad, etac, Lcavity, kB, v, N);
+[xOuterC, zOuterC] = outer_leaves_swapping_and_construction(LC, sigGKP, etas, etam, etad, etac, Lcavity, kC, v, N);
 
 
 numkGHZ = min([kA, kB, kC]);
+
 xOuterA = xOuterA(1:numkGHZ);
 zOuterA = zOuterA(1:numkGHZ);
 xOuterB = xOuterB(1:numkGHZ);
@@ -16,9 +16,9 @@ xOuterC = xOuterC(1:numkGHZ);
 zOuterC = zOuterC(1:numkGHZ);
 
 maxDistance = max([LA, LB, LC]);
-[xInnerA, zInnerA] = InnerSwappingAndConstruction(maxDistance, sigGKP, etas, etam, etad, etac, Lcavity, numkGHZ, v, N);
-[xInnerB, zInnerB] = InnerSwappingAndConstruction(maxDistance, sigGKP, etas, etam, etad, etac, Lcavity, numkGHZ, v, N);
-[xInnerC, zInnerC] = InnerSwappingAndConstruction(maxDistance, sigGKP, etas, etam, etad, etac, Lcavity, numkGHZ, v, N);
+[xInnerA, zInnerA] = inner_leaves_swapping_and_construction(maxDistance, sigGKP, etas, etam, etad, etac, Lcavity, numkGHZ, v, N);
+[xInnerB, zInnerB] = inner_leaves_swapping_and_construction(maxDistance, sigGKP, etas, etam, etad, etac, Lcavity, numkGHZ, v, N);
+[xInnerC, zInnerC] = inner_leaves_swapping_and_construction(maxDistance, sigGKP, etas, etam, etad, etac, Lcavity, numkGHZ, v, N);
 
 
 pauliTable = sourcePaulis();

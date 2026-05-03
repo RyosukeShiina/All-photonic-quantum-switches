@@ -14,3 +14,5 @@ if p == 0 || p == 1
 else
     h = -p * log2(p) - (1 - p) * log2(1 - p);
 end
+
+end

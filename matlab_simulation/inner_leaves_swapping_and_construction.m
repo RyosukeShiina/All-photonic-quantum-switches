@@ -29,37 +29,26 @@ v — The window size of measurement type 7. This is the widest window among all
     The window sizes for all other measurement types are determined relative to this, such that the bit-flip error probabilities are equal across all measurements. 
     Typically, we set v = 0.3. This choice is based on the observation that the bit-flip error probability saturates around v = 0.3.
 
-leaves — An integer parameter that can take values 0, 1, or 2, specifying which processes to simulate.  
-			- leaves = 0: Simulates only (1) Construction of Elementary Entangled Bell Pairs and (3) Outer-Leaf Swapping.
-			- leaves = 1: Simulates all three processes —
-				(1) Construction of Elementary Entangled Bell Pairs,  
-				(2) Outer-Leaves Swapping, and  
-				(3) Inner-Leaves Swapping.  
-			- leaves = 2: Simulates only (1) Construction of Elementary Entangled Bell Pairs and (2) Inner-Leaf Swapping.
-
 N — The number of trials. When N = 100, the simulation is repeated 100 times.
 
 
 [Outputs]
 
-Zerr — The bit-flip error probabilities in the Z basis. For example, setting k = 15 results in a column vector with 15 elements, ordered from the lowest to the highest value.
-
 Xerr — The bit-flip error probabilities in the X basis. For example, setting k = 15 results in a column vector with 15 elements, ordered from the lowest to the highest value.
+    
+Zerr — The bit-flip error probabilities in the Z basis. For example, setting k = 15 results in a column vector with 15 elements, ordered from the lowest to the highest value.
 
 
 [Example]
-
-[Zerr, Xerr] = UW2_InnerAndOuterLeaves(9, 0.12, 0.995, 0.999995, 0.9975, 0.99, 2, 15, 0.3, 1, 10000000)
+        
+[Xerr, Zerr] = inner_leaves_swapping_and_construction(9, 0.12, 0.995, 0.999995, 0.9975, 0.99, 2, 15, 0.3, 10000)
 
 
 %}
 
 
-% Throughout the UW2 construction process of elementary entangled Bell pairs, there are 10 types of measurements. For each type, we compute the effective standard deviation of the noise just before the measurement occurs.
+% Throughout the UW3 construction process of elementary entangled Bell pairs, there are 12 types of measurements. For each type, we compute the effective standard deviation of the noise just before the measurement occurs.
 sigmasPostselect = zeros(1, 11);
-
-
-
 sigmasPostselect(1) = sqrt(3*sigGKP^2 + (1-etad)/etad);
 sigmasPostselect(2) = sqrt(3*sigGKP^2 + (1-etas*etad)/(etas*etad));
 sigmasPostselect(3) = sqrt(3*sigGKP^2 + (1-etas^2*etad)/(etas^2*etad));
@@ -75,27 +64,26 @@ sigmasPostselect(11) = sqrt(2*sigGKP^2 + 1 - etas + (1-etad)/etad);
 % Measurement without postselection
 sigmasNoPost = sqrt(2*sigGKP^2 + (1-etas*etad)/(etas*etad));
 
-%The window size is determined for each of the 12 types of measurements.  Specifically, measurement type 7 — which has the largest standard deviation — is used as a reference.
-%The window sizes for all other measurement types are determined relative to this, such that the bit-flip error probabilities are equal across all measurements. We use the R_Find_v function.
+% The window size is determined for each of the 12 types of measurements.  Specifically, measurement type 7 — which has the largest standard deviation — is used as a reference.
+% The window sizes for all other measurement types are determined relative to this, such that the bit-flip error probabilities are equal across all measurements. We use the R_Find_v function.
 vVec = R_Find_v(sigmasPostselect, R_LogErrAfterPost(sigmasPostselect(7),v), v+0.1);
 
 
-%We prepare two blank row vectors to record:
-%(1) the bit-flip error probability (which should be close in value across all measurement types), and
-%(2) the survival probability after post-selection using the window sizes determined above.
+% We prepare two blank row vectors to record:
+% (1) the bit-flip error probability (which should be close in value across all measurement types), and
+% (2) the survival probability after post-selection using the window sizes determined above.
 ErrProbVec = zeros(1,12);
-pVec = zeros(1,12);
 
 
-%We calculate the bit-flip error probability and the survival probability after post-selection using the windows that correspond to each measurement, with the R_LogErrAfterPost function.
+% We calculate the bit-flip error probability and the survival probability after post-selection using the windows that correspond to each measurement, with the R_LogErrAfterPost function.
 for i = 1:11
-    [ErrProbVec(i), pVec(i)] = R_LogErrAfterPost(sigmasPostselect(i), vVec(i));
+    [ErrProbVec(i), ~] = R_LogErrAfterPost(sigmasPostselect(i), vVec(i));
 end
-[ErrProbVec(12), pVec(12)] = R_LogErrAfterPost(sigmasNoPost, 0);
+[ErrProbVec(12), ~] = R_LogErrAfterPost(sigmasNoPost, 0);
 
 
-%We prepare two scalar variables to record the bit-flip error probabilities in the Z and X bases during Inner-Leaves Swapping.
-%We can assume that the Inner-Leaves are identical, since they do not pass through photon fibers but instead go to a mirror room or an optical cavity.
+% We prepare two scalar variables to record the bit-flip error probabilities in the Z and X bases during Inner-Leaves Swapping.
+% We can assume that the Inner-Leaves are identical, since they do not pass through photon fibers but instead go to a mirror room or an optical cavity.
 XerrInner = 0;
 ZerrInner = 0;
 
@@ -108,14 +96,10 @@ ZerrInner = ZerrInner/N;
 XerrInner = XerrInner/N;
 
 
-%We copy the result above and convert it into column vectors, since we can assume that the Inner-Leaves are identical, since they do not pass through photon fibers but instead go to a mirror room or an optical cavity.
+% We copy the result above and convert it into column vectors, since we can assume that the Inner-Leaves are identical, since they do not pass through photon fibers but instead go to a mirror room or an optical cavity.
 ZerrInnerVec = ZerrInner*ones(k,1);
 XerrInnerVec = XerrInner*ones(k,1);
 
-
-%We combine the two error probability column vectors of the Inner-Leaves Swapping and Outer-Leaves Swapping.
-%An error occurs at the end only when an Inner-Leaves Swapping has an error and the corresponding Outer-Leaves Swapping does not, or vice versa. 
-%Therefore, instead of simply summing the two error probability column vectors, we compute the probability that Inner-Leaves Swapping causes an error while Outer-Leaves Swapping does not, and vice versa, and then sum these two contributions.
 
 Zerr = ZerrInnerVec;
 Xerr = XerrInnerVec;
