@@ -29,6 +29,7 @@ project-root/
 │   ├── run_switch_resource_allocation_sweep.m
 │   │   ├── GHZRate.m
 │   │   │   ├── map_swapping_results_to_ghz_pauli_operator_probabilities.m
+│   │   │   │   ├── ghz_source_pauli_operators
 │   │   │   │   ├── outer_leaves_swapping_and_construction.m
 │   │   │   │   │   └── UW3_OuterLeave.m
 │   │   │   │   │       ├── UW3_AddInitialLogErrors.m
@@ -46,6 +47,7 @@ project-root/
 │   │   │   │               └── R_JointErrorLikelihood.m
 │   │   │   │                   └── R_ErrorLikelihood.m
 │   │   │   ├── map_ghz_pauli_operator_probabilities_to_combined_pauli_operator_probabilities.m
+│   │   │   │   └── ghz_source_pauli_operators
 │   │   │   ├── map_combined_pauli_operator_probabilities_to_ghz_basis_lambdas_and_Qs.m
 │   │   │   │   ├── get_three_qubit_pauli_labels.m
 │   │   │   │   └── map_three_qubit_pauli_to_ghz_basis_index.m
