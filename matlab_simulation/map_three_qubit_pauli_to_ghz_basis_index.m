@@ -28,10 +28,10 @@ function ghzBasisIndex = map_three_qubit_pauli_to_ghz_basis_index(pauli1, pauli2
 
 paulis = [pauli1, pauli2, pauli3];
 
-%X-type component: X and Y flip computational-basis bits.
+% X-type component: X and Y flip computational-basis bits.
 bitFlipPattern = ismember(paulis, ["X", "Y"]);
 
-%Z-type component: Z and Y contribute phase flips.
+% Z-type component: Z and Y contribute phase flips.
 phaseFlipPattern = ismember(paulis, ["Z", "Y"]);
 
 isMinus = mod(sum(phaseFlipPattern), 2);

@@ -1,8 +1,6 @@
 function [pauli1, pauli2, pauli3] = get_three_qubit_pauli_labels(patternLabels, patternIndex)
 
-% get_three_qubit_pauli_labels
-%
-%   Extracts the three single-qubit Pauli labels from patternLabels.
+% Extracts the three single-qubit Pauli labels from patternLabels.
 %
 %   Accepted formats:
 %       64x3 string array:
@@ -11,7 +9,7 @@ function [pauli1, pauli2, pauli3] = get_three_qubit_pauli_labels(patternLabels, 
 %       64x1 string array:
 %           "IXZ"
 
-if ismatrix(patternLabels) && size(patternLabels, 2) == 3
+if size(patternLabels, 2) == 3 && numel(patternLabels(patternIndex, :)) == 3
     % Format: 64x3 string array, e.g., ["I", "X", "Z"].
     pauli1 = string(patternLabels(patternIndex, 1));
     pauli2 = string(patternLabels(patternIndex, 2));
