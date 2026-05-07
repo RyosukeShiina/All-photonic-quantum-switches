@@ -5,7 +5,7 @@ LD = 9;
 LE = 9;
 
 kTotalMax = 50;
-N = 1000000;
+N = 100;
 
 sigGKP = 0.12;
 etas = 0.995;
@@ -26,13 +26,13 @@ BellRateCache = zeros(kDMax+1, 1);
 fprintf("Precomputing GHZ rate cache...\n");
 for kA = 0:kAMax
     fprintf("kA=%d/%d\n", kA, kAMax);
-    GHZRateCache(kA+1) = GHZRate(LA, LB, LC, sigGKP, etas, etam, etad, etac, Lcavity, kA, kB, kC, v, N);
+    GHZRateCache(kA+1) = GHZRate(LA, LB, LC, sigGKP, etas, etam, etad, etac, Lcavity, kA, kA, kA, v, N);
 end
 
 fprintf("Precomputing Bell rate cache...\n");
 for kD = 0:kDMax
     fprintf("kD=%d/%d\n", kD, kDMax);
-    BellRateCache(kD+1) = BellRate(LD, LE, sigGKP, etas, etam, etad, etac, Lcavity, kD, kE, v, N);
+    BellRateCache(kD+1) = BellRate(LD, LE, sigGKP, etas, etam, etad, etac, Lcavity, kD, kD, v, N);
 end
 
 numRows = 0;

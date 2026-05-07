@@ -1,32 +1,50 @@
 function rateGHZ = GHZRate(LA, LB, LC, sigGKP, etas, etam, etad, etac, Lcavity, kA, kB, kC, v, N)
 
+% The function first computes the GHZ source Pauli-operator probabilities
+% for all available GHZ attempts. For each matched GHZ attempt, it maps the
+% 24 source Pauli-operator probabilities to a combined 64-component
+% three-qubit Pauli distribution, maps that distribution to GHZ-basis
+% lambdas and Q quantities, and then computes the secret key rate.
+
 if kA == 0 || kB == 0 || kC == 0
     rateGHZ = 0;
     return;
 end
 
-ghzPauliOperatorProbabilities = map_swapping_results_to_ghz_pauli_operator_probabilities(LA, LB, LC, sigGKP, etas, etam, etad, etac, Lcavity, kA, kB, kC, v, N);
+ghzPauliOperatorProbabilities = map_swapping_results_to_pauli_operator_probabilities(LA, LB, LC, sigGKP, etas, etam, etad, etac, Lcavity, kA, kB, kC, v, N);
 
-pauliTable = sourcePaulis();
+pauliTable = ghzPauliOperatorProbabilities.PauliOperators;
 numPaulis = size(pauliTable, 1);
 
-numkGHZ = min([kA, kB, kC]);
+if numPaulis ~= 24
+    error('Expected 24 GHZ source Pauli-operator probability entries.');
+end
+
+numkGHZ = ghzPauliOperatorProbabilities.numkGHZ;
+
 rateList = zeros(numkGHZ, 1);
 
 for ell = 1:numkGHZ
+
     singleResultsEll = struct();
+    singleResultsEll.PauliOperators = pauliTable;
     singleResultsEll.Probs = cell(numPaulis, 1);
 
-    for s = 1:numPaulis
-        probVector = singleResultsAll.Probs{s};
-        singleResultsEll.Probs{s} = probVector(ell);
+    for sourceIndex = 1:numPaulis
+        probVector = ghzPauliOperatorProbabilities.Probs{sourceIndex};
+        singleResultsEll.Probs{sourceIndex} = probVector(ell);
     end
 
-    combinedResults = CombinedResults_from_SingleResults(singleResultsEll);
-    [Qx, Qz, Qab, lambda] = QxQzQab_from_CombinedResults(combinedResults);
+    combinedPauliOperatorResults = ...
+        map_pauli_operator_probs_to_combined_pauli_operator_probs(singleResultsEll);
 
-    rateList(ell) = Rate_from_QxQzQab(Qx, Qz, Qab);
+    [ghz_basis_lambdas, Qx, Qz, Qab] = ...
+        map_combined_pauli_operator_probs_to_ghz_basis_lambdas_and_Qs(combinedPauliOperatorResults);
+
+    rateList(ell) = map_Qs_to_secret_key_rate(Qx, Qz, Qab);
+
 end
 
 rateGHZ = sum(rateList);
+
 end
