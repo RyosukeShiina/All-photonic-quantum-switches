@@ -77,7 +77,3 @@ six_point_kTotal_40_favor_Bell_N_1000.csv
 six_point_kTotal_40_favor_GHZ_N_1000.csv
 six_point_kTotal_40_both_policies_N_1000.mat
 ```
-
-## Notes
-
-The old grouping/optimization code is not required for the shared-pooling test. The new model assumes that `kBell` and `kGHZ` are given by the switch-level controller or swept externally.
