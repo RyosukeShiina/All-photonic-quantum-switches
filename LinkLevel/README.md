@@ -45,21 +45,11 @@ Typical scripts in the main folder are:
 
 ```text
 main_six_point_pooling_policy_test.m
-main_sweep_pooling_policy_to_csv.m
-plot_saved_pooling_policy_runs.m
 ```
 
 ### `main_six_point_pooling_policy_test.m`
 
 Runs a small six-point test for `kTotal = 40`. This is useful before launching a long sweep on the server.
-
-### `main_sweep_pooling_policy_to_csv.m`
-
-Runs a larger sweep over `kTotal`, `kBell`, and `kGHZ`, then writes one CSV file for `favor_Bell` and one CSV file for `favor_GHZ`.
-
-### `plot_saved_pooling_policy_runs.m`
-
-Loads saved result files and produces comparison plots.
 
 ## Path setup
 
