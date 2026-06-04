@@ -19,7 +19,7 @@ tstart = tic;
 
 disp("*******The simulation has started.*******");
 
-kAMax = floor(kSWMax/3);
+kAMax = floor(kSWMax/4);
 kDMax = floor(kSWMax/2);
 
 GHZRateCache  = zeros(kAMax+1, 1);
@@ -29,7 +29,7 @@ fprintf("Precomputing GHZ rate cache...\n");
 tGHZ = tic;
 for kA = 0:kAMax
     tIter = tic;
-    GHZRateCache(kA+1) = GHZRate(LA, LB, LC, sigGKP, etas, etam, etad, etac, Lcavity, kA, kA, kA, v, N);
+    GHZRateCache(kA+1) = GHZRate_end_node_simplified(LA, LB, LC, sigGKP, etas, etam, etad, etac, Lcavity, kA, kA, kA, kA, v, N);
     iterTime = toc(tIter);
     fprintf("kA=%d/%d | iter %.2f s | GHZ elapsed %.1f s | total elapsed %.1f s\n", kA, kAMax, iterTime, toc(tGHZ), toc(tstart));
 end
@@ -56,7 +56,7 @@ for kSW = 1:kSWMax
     for kGHZ = 0:kSW
         kBell = kSW - kGHZ;
 
-        kA = floor(kGHZ/3);
+        kA = floor(kGHZ/4);
         kD = floor(kBell/2);
 
         rateGHZ = GHZRateCache(kA+1);
@@ -72,7 +72,7 @@ disp("*******All loops completed.*******");
 
 T = array2table(out, 'VariableNames', {'kSW', 'kGHZ', 'kBell', 'kA', 'kD', 'rateSum', 'rateGHZ', 'rateBell'});
 
-writetable(T, 'switch_resource_allocation_sweep.csv');
+writetable(T, 'switch_resource_allocation_sweep_end_node_simplified.csv');
 
 disp("*******The simulation has finished.*******");
 elapsedTime = toc(tstart);

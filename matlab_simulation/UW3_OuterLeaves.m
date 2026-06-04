@@ -70,8 +70,6 @@ for i = 1:7
    end
 end
 
-%multip k
-
 %The binornd(n, p, a, k)-function generates random numbers (a, k)-column matrix from the binomial distribution specified by the trial numbers n (we set n=1 because we can measure each photon only once) and the probability of success for each trial p.
 %We have 10 bit-flip error probabilities after post-selection that correspond to 10 measurement types.
 
