@@ -73,7 +73,60 @@ project-root/
 │   │       ├── R_SecretKey6State_total.m
 │   │       ├── R_Find_v.m
 │   │       └── R_LogErrAfterPost.m
-│   ├── Perror_vs_v7_UW2_9km.m (Fig 9A01)
+│   ├── run_switch_resource_allocation_sweep_end_node.m
+│   │   ├── GHZRate_end_node.m
+│   │   |   ├── UW3_OuterLeave_end_node.m
+│   │   |   │   ├── UW3_AddInitialLogErrors.m
+│   │   |   │   └── R_ConcatenatedEC_OuterLeaves.m
+│   │   |   │       ├── R_ReminderMod.m
+│   │   |   │       ├── R_SyndromeToErrors.m
+│   │   |   │       └── R_JointErrorLikelihood.m
+│   │   |   │           └── R_ErrorLikelihood.m
+│   │   |   ├── UW3_InnerLeave_end_node.m
+│   │   |   │   ├── UW3_AddInitialLogErrors.m
+│   │   |   │   └── R_ConcatenatedEC_OuterLeaves.m
+│   │   |   │       ├── R_ReminderMod.m
+│   │   |   │       ├── R_SyndromeToErrors.m
+│   │   |   │       └── R_JointErrorLikelihood.m
+│   │   |   │           └── R_ErrorLikelihood.m
+│   │   |   ├── UW3_end_node_swapping.m
+│   │   |   │   ├── UW3_AddInitialLogErrors.m
+│   │   |   │   └── R_ConcatenatedEC_InnerLeaves.m
+│   │   |   │       ├── R_ReminderMod.m
+│   │   |   │       ├── R_SyndromeToErrors.m
+│   │   |   │       └── R_JointErrorLikelihood.m
+│   │   |   │           └── R_ErrorLikelihood.m
+│   │   |   ├── R_SecretKey6State_total.m
+│   │   |   ├── R_Find_v.m
+│   │   |   └── R_LogErrAfterPost.m
+│   │   └── BellRate.m
+│   ├── run_switch_resource_allocation_sweep_end_node_simplified.m
+│   │   ├── GHZRate_end_node_simplified.m
+│   │   |   ├── UW3_OuterLeave_end_node.m
+│   │   |   │   ├── UW3_AddInitialLogErrors.m
+│   │   |   │   └── R_ConcatenatedEC_OuterLeaves.m
+│   │   |   │       ├── R_ReminderMod.m
+│   │   |   │       ├── R_SyndromeToErrors.m
+│   │   |   │       └── R_JointErrorLikelihood.m
+│   │   |   │           └── R_ErrorLikelihood.m
+│   │   |   ├── UW3_InnerLeave_end_node_simplified.m
+│   │   |   │   ├── UW3_AddInitialLogErrors.m
+│   │   |   │   └── R_ConcatenatedEC_OuterLeaves.m
+│   │   |   │       ├── R_ReminderMod.m
+│   │   |   │       ├── R_SyndromeToErrors.m
+│   │   |   │       └── R_JointErrorLikelihood.m
+│   │   |   │           └── R_ErrorLikelihood.m
+│   │   |   ├── UW3_end_node_swapping_simplified.m
+│   │   |   │   ├── UW3_AddInitialLogErrors.m
+│   │   |   │   └── R_ConcatenatedEC_InnerLeaves.m
+│   │   |   │       ├── R_ReminderMod.m
+│   │   |   │       ├── R_SyndromeToErrors.m
+│   │   |   │       └── R_JointErrorLikelihood.m
+│   │   |   │           └── R_ErrorLikelihood.m
+│   │   |   ├── R_SecretKey6State_total.m
+│   │   |   ├── R_Find_v.m
+│   │   |   └── R_LogErrAfterPost.m
+│   │   └── BellRate.m
 │   ├── Rate_vs_Distance_UW2_and_UW3.m (Fig 9B01)
 │   ├── Rate_vs_k_UW2.m (Fig 9B02-9B04)
 │   ├── Rate_vs_k_UW3.m (Fig 9B02-9B04)
