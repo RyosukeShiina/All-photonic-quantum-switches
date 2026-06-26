@@ -3,7 +3,7 @@ LB = 9;
 LC = 9;
 
 kSWMax = 50;
-N = 10000000;
+N = 1000000;
 
 sigGKP = 0.12;
 etas = 0.995;
@@ -83,7 +83,7 @@ T = array2table(out, 'VariableNames', { ...
     'rateGHZ', ...
     'rateBell'});
 
-T.policy = policies(T.policy);
+T.policy = policies(T.policy).';
 
 writetable(T, 'run_switch_resource_allocation_sweep_joint_transmission.csv');
 
