@@ -4,7 +4,7 @@ Affiliation: University of Massachusetts Amherst
 Contact: rshiina@umass.edu
 
 # Description
-This repository contains the MATLAB, Mathematica, and Python code used to generate the results in our paper.
+This repository contains the MATLAB and Python code used to generate the results in our paper.
 
 # For QCNC paper readers
 This repository already contains simulation outputs used in the QCNC figures.
@@ -19,7 +19,6 @@ To reproduce QCNC figures from the provided data:
    - QCNC Fig. 8: `QCNC_camera-ready_FIG8_etam_vs_Lcavity.ipynb`
 
 The notebooks load data from `python_plotting/Fig_Data/`.
-If you would like to regenerate the simulation outputs from scratch, please use the UW3 series.
 
 # Folder Structure and Call Hierarchy
 
@@ -163,30 +162,17 @@ project-root/
 │           ├── R_Find_v.m
 │           └── R_LogErrAfterPost.m
 ├── python_plotting/
-│   ├── FIG9A01_Perror_vs_v7.ipynb
-│   ├── FIG9B01_Rate_vs_Distance.ipynb
-│   ├── FIG9B02-FIG9B05_Rate_vs_k.ipynb
-│   ├── FIG9C01_NoGKP_vs_Distance.ipynb
-│   ├── FIG9C02_NoGKP_vs_k.ipynb
-│   ├── FIG9D01-FIG9D05_Cost.ipynb
-│   ├── FIG10A02_Rate_vs_Distance.ipynb
-│   ├── FIG10A03_NoGKP_vs_Distance.ipynb
-│   ├── FIG10B03_Rate_vs_Distance.ipynb
-│   ├── FIG10B04_NoGKP_vs_Distance.ipynb
-│   ├── QCNC_camera-ready_FIG3_Rate_vs_Distance.ipynb (QCNC_Fig 3)
-│   ├── QCNC_camera-ready_FIG4_Rate_vs_k.ipynb (QCNC_Fig 4)
-│   ├── QCNC_camera-ready_FIG5_NoGKP_vs_Distance.ipynb (QCNC_Fig 5)
-│   ├── QCNC_camera-ready_FIG6_Cost_vs_k.ipynb (QCNC_Fig 6)
-│   ├── QCNC_camera-ready_FIG7_Rate_vs_Distance.ipynb (QCNC_Fig 7)
-│   ├── QCNC_camera-ready_FIG8_etam_vs_Lcavity.ipynb (QCNC_Fig 8)
+│   ├── QCNC_PLOT1_Rate_vs_Distance.ipynb (QCNC_Fig 2)
+│   ├── QCNC_PLOT2_Rate_vs_k.ipynb (QCNC_Fig 3)
+│   ├── QCNC_PLOT3_NoGKP_vs_Distance.ipynb (QCNC_Fig 4)
+│   ├── QCNC_PLOT4_Cost_vs_k.ipynb (QCNC_Fig 5)
+│   ├── QCNC_PLOT5_Rate_vs_Distance.ipynb (QCNC_Fig 6)
+│   ├── QCNC_PLOT6_etam_vs_Lcavity.ipynb (QCNC_Fig 7)
 │   └── fig_data
 │       ├── run_switch_resource_allocation_sweep.csv
-│       ├── Pdiscard_vs_v7
-│       ├── Rate_vs_Distance_UW2_and_UW3
-│       ├── Rate_vs_Distance_ML_and_LP
-│       ├── Rate_vs_k
-│       ├── NoG1_vs_Distance
-│       └── NoG1_vs_k
+│       ├── run_switch_resource_allocation_sweep_end_node.csv
+│       ├── run_switch_resource_allocation_sweep_end_node_simplified.csv
+│       └── run_switch_resource_allocation_sweep_joint_transmission.csv
 ├── LICENSE # MIT license for usage and redistribution
 └── README.md
 ```
