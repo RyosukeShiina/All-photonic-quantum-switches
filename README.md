@@ -15,12 +15,9 @@ This repository already contains simulation outputs used in the QCNC figures.
 To reproduce QCNC figures from the provided data:
 1. Go to `python_plotting/`
 2. Open and run the following notebooks:
-   - QCNC Fig. 3: `QCNC_camera-ready_FIG3_Rate_vs_Distance.ipynb`
-   - QCNC Fig. 4: `QCNC_camera-ready_FIG4_Rate_vs_k.ipynb`
-   - QCNC Fig. 5: `QCNC_camera-ready_FIG5_NoGKP_vs_Distance.ipynb`
-   - QCNC Fig. 6: `QCNC_camera-ready_FIG6_Cost_vs_k.ipynb`
-   - QCNC Fig. 7: `QCNC_camera-ready_FIG7_Rate_vs_Distance.ipynb`
-   - QCNC Fig. 8: `QCNC_camera-ready_FIG8_etam_vs_Lcavity.ipynb`
+   - QCNC Fig. 2: `QCNC_PLOT1_kGHZ_vs_kBell.ipynb`
+   - QCNC Fig. 3: `QCNC_PLOT2_RGHZ_vs_RBell.ipynb`
+
 
 The notebooks load data from `python_plotting/fig_data/`.
 
@@ -166,8 +163,8 @@ project-root/
 │           ├── R_Find_v.m
 │           └── R_LogErrAfterPost.m
 ├── python_plotting/
-│   ├── QCNC_PLOT1_Rate_vs_Distance.ipynb (QCNC_Fig 2)
-│   ├── QCNC_PLOT2_Rate_vs_k.ipynb (QCNC_Fig 3)
+│   ├── QCNC_PLOT1_kGHZ_vs_kBell.ipynb (QCNC_Fig 2)
+│   ├── QCNC_PLOT2_RGHZ_vs_RBell.ipynb (QCNC_Fig 3)
 │   ├── QCNC_PLOT3_NoGKP_vs_Distance.ipynb (QCNC_Fig 4)
 │   ├── QCNC_PLOT4_Cost_vs_k.ipynb (QCNC_Fig 5)
 │   ├── QCNC_PLOT5_Rate_vs_Distance.ipynb (QCNC_Fig 6)
