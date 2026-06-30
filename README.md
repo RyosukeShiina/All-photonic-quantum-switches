@@ -127,12 +127,55 @@ project-root/
 │   │   │   ├── R_Find_v.m
 │   │   │   └── R_LogErrAfterPost.m
 │   │   └── BellRate.m
-│   ├── Rate_vs_Distance_UW2_and_UW3.m (Fig 9B01)
-│   ├── Rate_vs_k_UW2.m (Fig 9B02-9B04)
-│   ├── Rate_vs_k_UW3.m (Fig 9B02-9B04)
-│   ├── Rate_vs_Distance_ML_UW2_and_UW3.m (Fig 10A02)
-│   ├── Rate_vs_Distance_LP.m (Fig 10B03)
-│   └── Rate_vs_Distance_LP_Spool_125m.m (Fig 10B03)
+│   └── run_switch_resource_allocation_sweep_joint_transmission.m
+│       ├── make_entangled_link_pools
+│       ├── allocate_entangled_links
+│       ├── GHZRate_from_allocated_links.m
+│       │   ├── map_swapping_results_to_ghz_pauli_operator_probabilities.m
+│       │   │   ├── ghz_source_pauli_operators
+│       │   │   ├── outer_leaves_swapping_and_construction.m
+│       │   │   │   └── UW3_OuterLeave.m
+│       │   │   │       ├── UW3_AddInitialLogErrors.m
+│       │   │   │       └── R_ConcatenatedEC_OuterLeaves.m
+│       │   │   │           ├── R_ReminderMod.m
+│       │   │   │           ├── R_SyndromeToErrors.m
+│       │   │   │           └── R_JointErrorLikelihood.m
+│       │   │   │               └── R_ErrorLikelihood.m
+│       │   │   └── InnerSwappingAndConstruction.m
+│       │   │       └── UW3_InnerLeave.m
+│       │   │           ├── UW3_AddInitialLogErrors.m
+│       │   │           └── R_ConcatenatedEC_InnerLeaves.m
+│       │   │               ├── R_ReminderMod.m
+│       │   │               ├── R_SyndromeToErrors.m
+│       │   │               └── R_JointErrorLikelihood.m
+│       │   │                   └── R_ErrorLikelihood.m
+│       │   ├── map_ghz_pauli_operator_probabilities_to_combined_pauli_operator_probabilities.m
+│       │   │   └── ghz_source_pauli_operators
+│       │   ├── map_combined_pauli_operator_probabilities_to_ghz_basis_lambdas_and_Qs.m
+│       │   │   ├── get_three_qubit_pauli_labels.m
+│       │   │   └── map_three_qubit_pauli_to_ghz_basis_index.m
+│       │   └── map_Qs_to_secret_key_rate.m
+│       │       ├── p_log2_p.m
+│       │       ├── p_times_one_minus_log2_p.m
+│       │       └── binary_entropy.m
+│       └── BellRate_from_allocated_links.m
+│           ├── UW3_OuterLeave.m
+│           │   ├── UW3_AddInitialLogErrors.m
+│           │   └── R_ConcatenatedEC_OuterLeaves.m
+│           │       ├── R_ReminderMod.m
+│           │       ├── R_SyndromeToErrors.m
+│           │       └── R_JointErrorLikelihood.m
+│           │           └── R_ErrorLikelihood.m
+│           ├── UW3_InnerLeave.m
+│           │   ├── UW3_AddInitialLogErrors.m
+│           │   └── R_ConcatenatedEC_InnerLeaves.m
+│           │       ├── R_ReminderMod.m
+│           │       ├── R_SyndromeToErrors.m
+│           │       └── R_JointErrorLikelihood.m
+│           │           └── R_ErrorLikelihood.m
+│           ├── R_SecretKey6State_total.m
+│           ├── R_Find_v.m
+│           └── R_LogErrAfterPost.m
 ├── mathematica_simulation/
 │   ├── NoG1_vs_Distance_UW2.m (Fig 9C01)
 │   ├── NoG1_vs_Distance_UW2_k=15_three9.m (Fig 9C01)
