@@ -3,6 +3,10 @@ Author: Ryosuke Shiina
 Affiliation: University of Massachusetts Amherst
 Contact: rshiina@umass.edu
 
+Author: Mohadeseh Azari
+Affiliation: University of Massachusetts Amherst
+Contact: rshiina@umass.edu
+
 # Description
 This repository contains the MATLAB and Python code used to generate the results in our paper.
 
