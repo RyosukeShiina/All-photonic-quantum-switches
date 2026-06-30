@@ -38,7 +38,7 @@ project-root/
 │   │   │   │   │           ├── R_SyndromeToErrors.m
 │   │   │   │   │           └── R_JointErrorLikelihood.m
 │   │   │   │   │               └── R_ErrorLikelihood.m
-│   │   │   │   └── InnerSwappingAndConstruction.m
+│   │   │   │   └── inner_leaves_swapping_and_construction.m
 │   │   │   │       └── UW3_InnerLeave.m
 │   │   │   │           ├── UW3_AddInitialLogErrors.m
 │   │   │   │           └── R_ConcatenatedEC_InnerLeaves.m
@@ -129,19 +129,12 @@ project-root/
 │   │   └── BellRate.m
 │   └── run_switch_resource_allocation_sweep_joint_transmission.m
 │       ├── make_entangled_link_pools
+│       │   └── outer_leaves_swapping_and_construction.m
 │       ├── allocate_entangled_links
 │       ├── GHZRate_from_allocated_links.m
-│       │   ├── map_swapping_results_to_ghz_pauli_operator_probabilities.m
+│       │   ├── map_allocated_links_to_pauli_operator_probabilities.m
 │       │   │   ├── ghz_source_pauli_operators
-│       │   │   ├── outer_leaves_swapping_and_construction.m
-│       │   │   │   └── UW3_OuterLeave.m
-│       │   │   │       ├── UW3_AddInitialLogErrors.m
-│       │   │   │       └── R_ConcatenatedEC_OuterLeaves.m
-│       │   │   │           ├── R_ReminderMod.m
-│       │   │   │           ├── R_SyndromeToErrors.m
-│       │   │   │           └── R_JointErrorLikelihood.m
-│       │   │   │               └── R_ErrorLikelihood.m
-│       │   │   └── InnerSwappingAndConstruction.m
+│       │   │   └── inner_leaves_swapping_and_construction.m
 │       │   │       └── UW3_InnerLeave.m
 │       │   │           ├── UW3_AddInitialLogErrors.m
 │       │   │           └── R_ConcatenatedEC_InnerLeaves.m
@@ -159,13 +152,6 @@ project-root/
 │       │       ├── p_times_one_minus_log2_p.m
 │       │       └── binary_entropy.m
 │       └── BellRate_from_allocated_links.m
-│           ├── UW3_OuterLeave.m
-│           │   ├── UW3_AddInitialLogErrors.m
-│           │   └── R_ConcatenatedEC_OuterLeaves.m
-│           │       ├── R_ReminderMod.m
-│           │       ├── R_SyndromeToErrors.m
-│           │       └── R_JointErrorLikelihood.m
-│           │           └── R_ErrorLikelihood.m
 │           ├── UW3_InnerLeave.m
 │           │   ├── UW3_AddInitialLogErrors.m
 │           │   └── R_ConcatenatedEC_InnerLeaves.m
@@ -176,23 +162,6 @@ project-root/
 │           ├── R_SecretKey6State_total.m
 │           ├── R_Find_v.m
 │           └── R_LogErrAfterPost.m
-├── mathematica_simulation/
-│   ├── NoG1_vs_Distance_UW2.m (Fig 9C01)
-│   ├── NoG1_vs_Distance_UW2_k=15_three9.m (Fig 9C01)
-│   ├── NoG1_vs_Distance_UW2_k=15_four9.m (Fig 9C01)
-│   ├── NoG1_vs_Distance_UW3.m (Fig 9C01)
-│   ├── NoG1_vs_k_UW2.m (Fig 9C02)
-│   ├── NoG1_vs_k_UW2_k=14.m (Fig 9C02)
-│   ├── NoG1_vs_k_UW2_k=15.m (Fig 9C02)
-│   ├── NoG1_vs_k_UW2_k=16.m (Fig 9C02)
-│   ├── NoG1_vs_k_UW2_k=17.m (Fig 9C02)
-│   ├── NoG1_vs_k_UW2_k=18.m (Fig 9C02)
-│   ├── NoG1_vs_k_UW2_k=19.m (Fig 9C02)
-│   ├── NoG1_vs_k_UW2_k=20.m (Fig 9C02)
-│   ├── NoG1_vs_k_UW3.m (Fig 9C02)
-│   ├── NoG1_vs_Distance_ML_UW2.m (Fig 10A03)
-│   ├── NoG1_vs_Distance_ML_UW3.m (Fig 10A03)
-│   └── NoG1_vs_Distance_LP.m (Fig 10B04)
 ├── python_plotting/
 │   ├── FIG9A01_Perror_vs_v7.ipynb
 │   ├── FIG9B01_Rate_vs_Distance.ipynb
@@ -211,7 +180,7 @@ project-root/
 │   ├── QCNC_camera-ready_FIG7_Rate_vs_Distance.ipynb (QCNC_Fig 7)
 │   ├── QCNC_camera-ready_FIG8_etam_vs_Lcavity.ipynb (QCNC_Fig 8)
 │   └── fig_data
-│       ├── Perror_vs_v7
+│       ├── run_switch_resource_allocation_sweep.csv
 │       ├── Pdiscard_vs_v7
 │       ├── Rate_vs_Distance_UW2_and_UW3
 │       ├── Rate_vs_Distance_ML_and_LP
