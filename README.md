@@ -18,7 +18,7 @@ To reproduce QCNC figures from the provided data:
    - QCNC Fig. 7: `QCNC_camera-ready_FIG7_Rate_vs_Distance.ipynb`
    - QCNC Fig. 8: `QCNC_camera-ready_FIG8_etam_vs_Lcavity.ipynb`
 
-The notebooks load data from `python_plotting/Fig_Data/`.
+The notebooks load data from `python_plotting/fig_data/`.
 
 # Folder Structure and Call Hierarchy
 
