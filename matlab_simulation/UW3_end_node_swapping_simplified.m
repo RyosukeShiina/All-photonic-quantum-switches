@@ -56,21 +56,25 @@ Sampled2 = {Sampled3Sigma(end/2 + 1:end,1),Sampled3SigmaSwitch(end/2 + 1:end,1),
 eta = etam^(L0*1000*10/(Lcavity*7));
 sigChannel = sqrt(2*sigGKP^2 + (1-etas^2*etac^4*eta*etad)/(etas^2*etac^4*eta*etad));
 
-
+%measure
 qdeltas = qdeltas + normrnd(0, sigChannel, 7, 1);
 Xerrors = R_ConcatenatedEC_InnerLeaves(qdeltas, sigChannel, tableSingleErr, tableDoubleErr, tableTripleErr);
 
 
-pdeltas = pdeltas + normrnd(0, sigChannel, 7, 1);
-Zerrors = R_ConcatenatedEC_InnerLeaves(pdeltas, sigChannel, tableSingleErr, tableDoubleErr, tableTripleErr);
+%keep
+sigChannelKeep = sqrt(2*sigGKP^2 + (1-etas^2*etac^4*eta)/(etas^2*etac^4*eta));
+
+% Add only the memory noise associated with the additional waiting time relative to the original R2 architecture.
+% % Under the differential comparison model, the retained output
+% introduces no additional Z error because the end-node fusion
+% is performed simultaneously with the inner-leaf swapping.
+etaDiff = 1;
+%sigChannelDiff = 0;
+%pdeltas = pdeltas + normrnd(0, sigChannelDiff, 7, 1);
+%Zerrors = R_ConcatenatedEC_InnerLeaves(pdeltas, sigChannelDiff, tableSingleErr, tableDoubleErr, tableTripleErr);
 
 
-
-if any(Zerrors)
-    Zerr = 1;
-else
-    Zerr = 0;
-end
+Zerr = 0;
 
 
 if any(Xerrors)

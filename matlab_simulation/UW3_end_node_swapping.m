@@ -57,21 +57,28 @@ eta = etam^(2*(L0*1000*10/(Lcavity*7)));
 sigChannel = sqrt(2*sigGKP^2 + (1-etas^2*etac^4*eta*etad)/(etas^2*etac^4*eta*etad));
 
 
+%measure
 qdeltas = qdeltas + normrnd(0, sigChannel, 7, 1);
 Xerrors = R_ConcatenatedEC_InnerLeaves(qdeltas, sigChannel, tableSingleErr, tableDoubleErr, tableTripleErr);
 
 
-pdeltas = pdeltas + normrnd(0, sigChannel, 7, 1);
-Zerrors = R_ConcatenatedEC_InnerLeaves(pdeltas, sigChannel, tableSingleErr, tableDoubleErr, tableTripleErr);
 
 
+%keep
+sigChannelKeep = sqrt(2*sigGKP^2 + (1-etas^2*etac^4*eta)/(etas^2*etac^4*eta));
+
+% Add only the memory noise associated with the additional waiting time relative to the original R2 architecture.
+etaDiff = etam^((L0*1000*10/(Lcavity*7)));
+sigChannelDiff = sqrt((1-etaDiff)/(etaDiff));
+
+pdeltas = pdeltas + normrnd(0, sigChannelDiff, 7, 1);
+Zerrors = R_ConcatenatedEC_InnerLeaves(pdeltas, sigChannelDiff, tableSingleErr, tableDoubleErr, tableTripleErr);
 
 if any(Zerrors)
     Zerr = 1;
 else
     Zerr = 0;
 end
-
 
 if any(Xerrors)
     Xerr = 1;
@@ -80,4 +87,4 @@ else
 end
 
 
-logErr = [Zerr,Xerr];
+logErr = [Zerr, Xerr];
