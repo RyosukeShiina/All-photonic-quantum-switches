@@ -57,16 +57,22 @@ for patternIndex = 1:64
 end
 
 
-% Qx = 1/2 - 1/2 * (lambda_0^+ - lambda_0^-)
-Qx = 0.5 - 0.5 * (ghz_basis_lambdas(1) - ghz_basis_lambdas(2));
+Qx = 0.5 - 0.5 * ( ...
+      ghz_basis_lambdas(1) - ghz_basis_lambdas(2) ...
+    + ghz_basis_lambdas(3) - ghz_basis_lambdas(4) ...
+    + ghz_basis_lambdas(5) - ghz_basis_lambdas(6) ...
+    + ghz_basis_lambdas(7) - ghz_basis_lambdas(8));
 
 % Qz = 1 - lambda_0^+ - lambda_0^-
 Qz = 1.0 - ghz_basis_lambdas(1) - ghz_basis_lambdas(2);
 
-Qab1 = ghz_basis_lambdas(3) + ghz_basis_lambdas(4);
-Qab2 = ghz_basis_lambdas(5) + ghz_basis_lambdas(6);
-Qab3 = ghz_basis_lambdas(7) + ghz_basis_lambdas(8);
+lambda1 = ghz_basis_lambdas(3) + ghz_basis_lambdas(4);
+lambda2 = ghz_basis_lambdas(5) + ghz_basis_lambdas(6);
+lambda3 = ghz_basis_lambdas(7) + ghz_basis_lambdas(8);
 
-Qab = max([Qab1, Qab2, Qab3]);
+Qab_AB = lambda1 + lambda2;
+Qab_AC = lambda1 + lambda3;
+
+Qab = max([Qab_AB, Qab_AC]);
 
 end

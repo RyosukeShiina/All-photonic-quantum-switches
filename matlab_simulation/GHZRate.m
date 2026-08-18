@@ -41,10 +41,11 @@ for ell = 1:numkGHZ
     [ghz_basis_lambdas, Qx, Qz, Qab] = ...
         map_combined_pauli_operator_probs_to_ghz_basis_lambdas_and_Qs(combinedPauliOperatorResults);
 
-    rateList(ell) = map_Qs_to_secret_key_rate(Qx, Qz, Qab);
+    rateList(ell) = map_ghz_basis_lambdas_to_secret_key_rate(ghz_basis_lambdas, Qab);
 
 end
 
 rateGHZ = sum(rateList);
+
 
 end

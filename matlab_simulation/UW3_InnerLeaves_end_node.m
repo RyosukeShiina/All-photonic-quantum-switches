@@ -1,4 +1,4 @@
-function logErr = UW3_InnerLeaves_end_node(L0, sigGKP, etas, etam, etad, etac, Lcavity, k, ErrProbVec, PerrorQ1, PerrorP1, PerrorQ2, PerrorP2)
+function [logErr, IndDesc] = UW3_InnerLeaves_end_node(L0, sigGKP, etas, etam, etad, etac, Lcavity, k, ErrProbVec, PerrorQ1, PerrorP1, PerrorQ2, PerrorP2)
 
 
 

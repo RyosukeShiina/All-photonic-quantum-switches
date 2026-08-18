@@ -99,6 +99,9 @@ end
 %Find indesces of PNoError in descending order
 [~, IndDesc] = sort(SecKeyRanking, 'descend');
 
+PerrorQ = PerrorQ(IndDesc);
+PerrorP = PerrorP(IndDesc);
+
 %Now check whether there were X errors on the corresponding qubits
 %in descening order according to PNoError:
 for i = 1:k

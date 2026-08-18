@@ -44,11 +44,14 @@ sameK = (kA == kB) && (kB == kB2) && (kB2 == kC);
 if sameDistance && sameK
     ZerrOuterA = zeros(kA, 1);
     XerrOuterA = zeros(kA, 1);
-    PerrorQA = zeros(kA, 1);
-    PerrorPA = zeros(kA, 1);
+    PerrorQA = zeros(1, kA);
+    PerrorPA = zeros(1, kA);
 
     parfor i = 1:N
-        [logErrOuter, PerrorQ, PerrorP] = UW3_OuterLeaves_end_node(LA, sigGKP, etas, etad, etac, kA, ErrProbVec);
+        [logErrOuter, PerrorQ, PerrorP] = ...
+            UW3_OuterLeaves_end_node( ...
+                LA, sigGKP, etas, etad, etac, kA, ErrProbVec);
+
         ZerrOuterA = ZerrOuterA + logErrOuter(:, 1);
         XerrOuterA = XerrOuterA + logErrOuter(:, 2);
         PerrorQA = PerrorQA + PerrorQ;
@@ -77,74 +80,96 @@ if sameDistance && sameK
     XerrOuterC = XerrOuterA;
     PerrorQC = PerrorQA;
     PerrorPC = PerrorPA;
+
 else
     ZerrOuterA = zeros(kA, 1);
     XerrOuterA = zeros(kA, 1);
-    PerrorQA = zeros(kA, 1);
-    PerrorPA = zeros(kA, 1);
+    PerrorQA = zeros(1, kA);
+    PerrorPA = zeros(1, kA);
+
     ZerrOuterB = zeros(kB, 1);
     XerrOuterB = zeros(kB, 1);
-    PerrorQB = zeros(kB, 1);
-    PerrorPB = zeros(kB, 1);
+    PerrorQB = zeros(1, kB);
+    PerrorPB = zeros(1, kB);
+
     ZerrOuterB2 = zeros(kB2, 1);
     XerrOuterB2 = zeros(kB2, 1);
-    PerrorQB2 = zeros(kB2, 1);
-    PerrorPB2 = zeros(kB2, 1);
+    PerrorQB2 = zeros(1, kB2);
+    PerrorPB2 = zeros(1, kB2);
+
     ZerrOuterC = zeros(kC, 1);
     XerrOuterC = zeros(kC, 1);
-    PerrorQC = zeros(kC, 1);
-    PerrorPC = zeros(kC, 1);
+    PerrorQC = zeros(1, kC);
+    PerrorPC = zeros(1, kC);
 
     parfor i = 1:N
-        [logErrOuter, PerrorQ, PerrorP] = UW3_OuterLeaves(LA, sigGKP, etas, etad, etac, kA, ErrProbVec);
+        [logErrOuter, PerrorQ, PerrorP] = ...
+            UW3_OuterLeaves_end_node( ...
+                LA, sigGKP, etas, etad, etac, kA, ErrProbVec);
+
         ZerrOuterA = ZerrOuterA + logErrOuter(:, 1);
         XerrOuterA = XerrOuterA + logErrOuter(:, 2);
         PerrorQA = PerrorQA + PerrorQ;
         PerrorPA = PerrorPA + PerrorP;
     end
+
     ZerrOuterA = ZerrOuterA / N;
     XerrOuterA = XerrOuterA / N;
     PerrorQA = PerrorQA / N;
     PerrorPA = PerrorPA / N;
 
+
     parfor i = 1:N
-        [logErrOuter, PerrorQ, PerrorP] = UW3_OuterLeaves(LB, sigGKP, etas, etad, etac, kB, ErrProbVec);
+        [logErrOuter, PerrorQ, PerrorP] = ...
+            UW3_OuterLeaves_end_node( ...
+                LB, sigGKP, etas, etad, etac, kB, ErrProbVec);
+
         ZerrOuterB = ZerrOuterB + logErrOuter(:, 1);
         XerrOuterB = XerrOuterB + logErrOuter(:, 2);
         PerrorQB = PerrorQB + PerrorQ;
         PerrorPB = PerrorPB + PerrorP;
     end
+
     ZerrOuterB = ZerrOuterB / N;
     XerrOuterB = XerrOuterB / N;
     PerrorQB = PerrorQB / N;
     PerrorPB = PerrorPB / N;
 
+
     parfor i = 1:N
-        [logErrOuter, PerrorQ, PerrorP] = UW3_OuterLeaves(LB, sigGKP, etas, etad, etac, kB2, ErrProbVec);
+        [logErrOuter, PerrorQ, PerrorP] = ...
+            UW3_OuterLeaves_end_node( ...
+                LB, sigGKP, etas, etad, etac, kB2, ErrProbVec);
+
         ZerrOuterB2 = ZerrOuterB2 + logErrOuter(:, 1);
         XerrOuterB2 = XerrOuterB2 + logErrOuter(:, 2);
         PerrorQB2 = PerrorQB2 + PerrorQ;
         PerrorPB2 = PerrorPB2 + PerrorP;
     end
+
     ZerrOuterB2 = ZerrOuterB2 / N;
     XerrOuterB2 = XerrOuterB2 / N;
     PerrorQB2 = PerrorQB2 / N;
     PerrorPB2 = PerrorPB2 / N;
 
+
     parfor i = 1:N
-        [logErrOuter, PerrorQ, PerrorP] = UW3_OuterLeaves(LC, sigGKP, etas, etad, etac, kC, ErrProbVec);
+        [logErrOuter, PerrorQ, PerrorP] = ...
+            UW3_OuterLeaves_end_node( ...
+                LC, sigGKP, etas, etad, etac, kC, ErrProbVec);
+
         ZerrOuterC = ZerrOuterC + logErrOuter(:, 1);
         XerrOuterC = XerrOuterC + logErrOuter(:, 2);
         PerrorQC = PerrorQC + PerrorQ;
         PerrorPC = PerrorPC + PerrorP;
     end
+
     ZerrOuterC = ZerrOuterC / N;
     XerrOuterC = XerrOuterC / N;
     PerrorQC = PerrorQC / N;
     PerrorPC = PerrorPC / N;
 
 end
-
 
 
 
@@ -248,13 +273,50 @@ XerrInnerAB = XerrInnerAB(1:k);
 ZerrInnerBC = ZerrInnerBC(1:k);
 XerrInnerBC = XerrInnerBC(1:k);
 
-Zmat = [ZerrOuterA, ZerrOuterB, ZerrOuterB2, ZerrOuterC, ZerrInnerAB, ZerrInnerBC, ZerrEndNode];
-Xmat = [XerrOuterA, XerrOuterB, XerrOuterB2, XerrOuterC, XerrInnerAB, XerrInnerBC, XerrEndNode];
+ghzPauliOperatorProbabilities = ...
+    map_swapping_results_to_pauli_operator_probabilities_end_node( ...
+        XerrOuterA, ZerrOuterA, ...
+        XerrOuterB, ZerrOuterB, ...
+        XerrOuterB2, ZerrOuterB2, ...
+        XerrOuterC, ZerrOuterC, ...
+        XerrInnerAB, ZerrInnerAB, ...
+        XerrInnerBC, ZerrInnerBC, ...
+        XerrEndNode, ZerrEndNode);
 
-Zerr = odd_parity_error_probability(Zmat);
-Xerr = odd_parity_error_probability(Xmat);
+pauliTable = ghzPauliOperatorProbabilities.PauliOperators;
+numPaulis = size(pauliTable, 1);
+numkGHZ = ghzPauliOperatorProbabilities.numkGHZ;
 
-rateGHZ = R_SecretKey6State_total(Zerr, Xerr);
+rateList = zeros(numkGHZ, 1);
+
+for ell = 1:numkGHZ
+
+    singleResultsEll = struct();
+    singleResultsEll.PauliOperators = pauliTable;
+    singleResultsEll.Probs = cell(numPaulis, 1);
+
+    for sourceIndex = 1:numPaulis
+        probVector = ...
+            ghzPauliOperatorProbabilities.Probs{sourceIndex};
+
+        singleResultsEll.Probs{sourceIndex} = ...
+            probVector(ell);
+    end
+
+    combinedPauliOperatorResults = ...
+        map_pauli_operator_probs_to_combined_operator_probs_end_node( ...
+            singleResultsEll);
+
+    [ghz_basis_lambdas, ~, ~, Qab] = ...
+        map_combined_pauli_operator_probs_to_ghz_basis_lambdas_and_Qs( ...
+            combinedPauliOperatorResults);
+
+    rateList(ell) = ...
+        map_ghz_basis_lambdas_to_secret_key_rate( ...
+            ghz_basis_lambdas, Qab);
+end
+
+rateGHZ = sum(rateList);
 
 end
 
